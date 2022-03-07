@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Platform } from "react-native";
+import { StyleSheet, Text, View, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { enableScreens } from "react-native-screens";
-import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
+import store from "./src/store/store";
+import HomeStackNavigator from "./src/navigation/HomeStackNavigator";
 import colors from "./src/constants/colors";
 
 enableScreens();
@@ -32,12 +33,16 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1, marginTop: 50 }}>
-      <StatusBar
-        backgroundColor="black"
-        style={Platform.OS === "android" ? "light" : "dark"}
-      />
-      <Text>Hello Math!</Text>
-    </View>
+    <Provider store={store}>
+      <View style={{ flex: 1, marginTop: 20 }}>
+        <StatusBar
+          backgroundColor="black"
+          style={Platform.OS === "android" ? "light" : "dark"}
+        />
+        <NavigationContainer>
+          <HomeStackNavigator />
+        </NavigationContainer>
+      </View>
+    </Provider>
   );
 }
