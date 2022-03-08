@@ -1,47 +1,84 @@
 import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StyleSheet, Dimensions } from "react-native";
+import {
+  MaterialIcons,
+  MaterialCommunityIcons,
+  Feather,
+} from "@expo/vector-icons";
 
+import NavigationIcon from "../components/NavigationIcon";
 import CustomButton from "../components/CustomButton";
 
 import colors from "../constants/colors";
 
 export default function HomeScreen({ navigation, route }) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-
+    <ScrollView contentContainerStyle={styles.contentContainer}>
+      <View style={styles.buttonGroup}>
+        <NavigationIcon>
+          <MaterialIcons name="add" size={50} color={colors.primaryDark} />
+        </NavigationIcon>
         <CustomButton
           title="Addition"
-          rounded
           bordered
+          color={colors.primaryDark}
+          onPress={() => navigation.navigate("/testing", { testType: "+" })}
         />
-
-      <View style={styles.button}>
+      </View>
+      <View style={styles.buttonGroup}>
+        <NavigationIcon>
+          <MaterialCommunityIcons
+            name="minus"
+            size={50}
+            color={colors.primaryDark}
+          />
+        </NavigationIcon>
         <CustomButton
           title="Subtraction"
-          type="outlined"
-          rounded
           bordered
+          color={colors.primaryDark}
+          onPress={() => navigation.navigate("/testing", { testType: "-" })}
         />
       </View>
-      <View style={styles.button}>
+      <View style={styles.buttonGroup}>
+        <NavigationIcon>
+          <Feather name="x" size={50} color={colors.primaryDark} />
+        </NavigationIcon>
         <CustomButton
           title="Multiplication"
-          color={colors.primary}
+          color={colors.primaryDark}
           bordered
-          />
-      </View>
-      <View style={styles.button}>
-        <CustomButton
-          title="Division"
-          type="outlined"
-          color={colors.primary}
-          bordered
+          onPress={() => navigation.navigate("/testing", { testType: "x" })}
         />
       </View>
-      <View style={styles.button}>
+      <View style={styles.buttonGroup}>
+        <NavigationIcon>
+          <MaterialCommunityIcons
+            name="division"
+            size={50}
+            color={colors.primaryDark}
+          />
+        </NavigationIcon>
+        <CustomButton
+          title="Division"
+          bordered
+          color={colors.primaryDark}
+          onPress={() => navigation.navigate("/testing", { testType: "/" })}
+        />
+      </View>
+      <View style={styles.buttonGroup}>
+        <NavigationIcon>
+          <MaterialCommunityIcons
+            name="calculator-variant"
+            size={50}
+            color={colors.primaryDark}
+          />
+        </NavigationIcon>
         <CustomButton
           title="Mixed"
+          bordered
           color={colors.primaryDark}
+          onPress={() => navigation.navigate("/testing", { testType: "&" })}
         />
       </View>
     </ScrollView>
@@ -49,11 +86,16 @@ export default function HomeScreen({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  contentContainer: {
+    flexGrow: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    paddingVertical: 80,
+    paddingVertical: Dimensions.get("window").height > 500 ? 80 : 40,
+    backgroundColor: colors.primaryLight,
   },
-  button: {marginVertical: 10}
+  buttonGroup: {
+    flexDirection: "row",
+    marginVertical: 10,
+    alignItems: "center",
+  },
 });

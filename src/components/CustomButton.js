@@ -9,9 +9,10 @@ export default function CustomButton({
   onPress,
   type = "filled",
   rounded = false,
-  size = "large",
+  size = "small",
   color = colors.primaryLight,
-  bordered = false
+  bordered = false,
+  fontSize = 16
 }) {
   const large = width / 1.3;
   const small = width / 2;
@@ -36,7 +37,7 @@ export default function CustomButton({
 
   const textCommonStyle = {
     color: btnTextColor,
-    fontSize: 16,
+    fontSize: fontSize,
     textTransform: "uppercase",
     textAlign: "center",
     fontFamily: "open-sans-bold",

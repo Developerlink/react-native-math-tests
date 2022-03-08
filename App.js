@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <View style={{ flex: 1, marginTop: 20 }}>
+      <View style={{ flex: 1}}>
         <StatusBar
           backgroundColor="black"
           style={Platform.OS === "android" ? "light" : "dark"}
