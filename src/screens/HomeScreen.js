@@ -22,7 +22,7 @@ export default function HomeScreen({ navigation, route }) {
           title="Addition"
           bordered
           color={colors.primaryDark}
-          onPress={() => navigation.navigate("/testing", { testType: "+" })}
+          onPress={() => navigation.navigate("/intAddTesting")}
         />
       </View>
       <View style={styles.buttonGroup}>
@@ -37,7 +37,7 @@ export default function HomeScreen({ navigation, route }) {
           title="Subtraction"
           bordered
           color={colors.primaryDark}
-          onPress={() => navigation.navigate("/testing", { testType: "-" })}
+          onPress={() => navigation.navigate("/intAddTesting")}
         />
       </View>
       <View style={styles.buttonGroup}>
@@ -48,7 +48,7 @@ export default function HomeScreen({ navigation, route }) {
           title="Multiplication"
           color={colors.primaryDark}
           bordered
-          onPress={() => navigation.navigate("/testing", { testType: "x" })}
+          onPress={() => navigation.navigate("/intAddTesting")}
         />
       </View>
       <View style={styles.buttonGroup}>
@@ -63,7 +63,7 @@ export default function HomeScreen({ navigation, route }) {
           title="Division"
           bordered
           color={colors.primaryDark}
-          onPress={() => navigation.navigate("/testing", { testType: "/" })}
+          onPress={() => navigation.navigate("/intAddTesting")}
         />
       </View>
       <View style={styles.buttonGroup}>
@@ -78,7 +78,7 @@ export default function HomeScreen({ navigation, route }) {
           title="Mixed"
           bordered
           color={colors.primaryDark}
-          onPress={() => navigation.navigate("/testing", { testType: "&" })}
+          onPress={() => navigation.navigate("/intAddTesting")}
         />
       </View>
     </ScrollView>

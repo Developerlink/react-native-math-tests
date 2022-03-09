@@ -2,7 +2,7 @@ import React from "react";
 import { Platform } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
-import TestingScreen from "../screens/TestingScreen";
+import IntAddTestingScreen from "../screens/IntAddTestingScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 
@@ -24,8 +24,8 @@ export default function HomeStackNavigator({ navigation, route }) {
     >
       <Stack.Screen name="/home" component={HomeScreen} />
       <Stack.Screen
-        name="/testing"
-        component={TestingScreen}
+        name="/intAddTesting"
+        component={IntAddTestingScreen}
         initialParams={{ testType: "x" }}
       />
       <Stack.Screen name="/settings" component={SettingsScreen} />
